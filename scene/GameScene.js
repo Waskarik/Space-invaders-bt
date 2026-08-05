@@ -9,12 +9,19 @@ class GameScene extends Phaser.Scene {
     this.load.image("enemy2", "random_invaders_assets/saucer2b.ico");
     this.load.image("startScreen", "random_invaders_assets/start.png");
     this.load.audio("shoot","random_invaders_assets/shoot.wav");
-    this.load.audio("music", "random_invaders_assets/music.mp3");
+    this.load.audio("BGM", "random_invaders_assets/music.mp3");
+    this.load.audio("EnemyDead","random_invaders_assets/invaderkilled.wav")
+    this.load.image("projectile", "random_invaders_assets/tiro.png");
+    this.load.image("player", "random_invaders_assets/baseshipa.ico");    
   }
   
   create() {
+    console.log("preload rodou");
     //console.log(this.cache.audio.exists("shoot"));
-    
+      this.music = this.sound.add("BGM",{
+      loop: true,
+      volume: 0.4,
+    })
     this.player = new Player(this);
     this.score = 0;
     this.level = 1;
@@ -30,6 +37,7 @@ class GameScene extends Phaser.Scene {
       },
       loop: true,
     });
+    this.enemyBaseSpeed = 100;
     this.newWave();
     this.gameStarted = false;
 
@@ -44,16 +52,13 @@ class GameScene extends Phaser.Scene {
       this.scale.height
     )
     .setDepth(100);
-
 this.input.keyboard.once("keydown", () => {
   this.startScreen.destroy();
   this.gameStarted = true;
   this.physics.resume();
   this.isGameOver = false;
-  this.music = this.sound.add("music",{
-      loop: true,
-      volume: 0.4,
-    })
+  if(!this.music.isPlaying)
+  this.music.play();
 });
   }
 
@@ -128,16 +133,15 @@ this.input.keyboard.once("keydown", () => {
     this.levelText.setText(`Level ${this.level}`);
     this.score += 1000;
     this.scoreText.setText(`Score: ${this.score}`);
-    for (const enemy of this.enemies) {
-      enemy.speed += 20; //not working
-    }
+    
     this.newWave();
-  }
-
+    }
+  
   newWave() {
+    this.enemyBaseSpeed +=20;
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 4; j++) {
-        const enemy = new Enemy(this, 80 + i * 80, 40 + j * 40);
+        const enemy = new Enemy(this, 80 + i * 80, 40 + j * 40, this.enemyBaseSpeed);
         this.enemies.push(enemy);
         this.physics.add.overlap(this.player.sprite, enemy.sprite, () => {
           this.gameOver();
@@ -148,6 +152,7 @@ this.input.keyboard.once("keydown", () => {
 
   gameOver() {
     this.isGameOver = true;
+    this.music.stop();
     this.physics.pause();
     this.enemyShootTimer.remove();
     this.add
@@ -172,3 +177,4 @@ this.input.keyboard.once("keydown", () => {
     });
   }
 }
+

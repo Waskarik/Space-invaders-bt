@@ -1,7 +1,7 @@
 class Enemy {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, speed = 100) {
     this.scene = scene;
-    this.speed = 100;
+    this.speed = speed;
     this.sprite = scene.add.sprite(x, y, "enemy1");
     this.sprite.setScale(0.7);
 

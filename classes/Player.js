@@ -2,8 +2,11 @@ class Player {
   constructor(scene) {
     this.scene = scene;
     this.speed = 250;
-    this.sprite = scene.add.rectangle(400, 800, 50, 50, 0x00ff00);
-    scene.physics.add.existing(this.sprite);
+    this.sprite = scene.physics.add.sprite(
+      scene.scale.width / 2,
+      scene.scale.height - 40,
+      "player"
+    );
     this.projectile = null;
     this.sprite.body.setCollideWorldBounds(true);
     this.cursors = scene.input.keyboard.createCursorKeys();
@@ -49,6 +52,8 @@ class Player {
       enemy.sprite,
       () => {
         projectile.destroy();
+        this.scene.sound.play("EnemyDead", {
+        volume: 0.4,})
         enemy.destroy();
         this.scene.score += 10;
         this.scene.scoreText.setText(`Score: ${this.scene.score}`);
