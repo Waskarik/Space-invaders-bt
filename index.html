@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Random Invaders</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Biblioteca Phaser -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.js"></script>
+  </head>
+
+  <body>
+    <main class="page-container">
+      <header class="game-header">
+        <h1>Random Invaders</h1>
+
+        <p>
+          Defend yourself from the invading enemies by moving and shooting projectiles.
+        </p>
+      </header>
+
+      <section
+        id="game-container"
+        aria-label="Área do jogo"
+      ></section>
+
+      <footer class="game-controls">
+        <p>
+          <strong>Movement:</strong>
+          A/D or arrows
+        </p>
+
+        <p>
+          <strong>Attack:</strong>
+          space
+        </p>
+      </footer>
+    </main>
+    <script src="./classes/Player.js"></script>
+    <script src="./classes/Enemy.js"></script>
+    <script src="./classes/Projectile.js"></script>
+    <script src="./scene/GameScene.js"></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
