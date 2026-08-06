@@ -21,6 +21,7 @@ class GameScene extends Phaser.Scene {
       this.music = this.sound.add("BGM",{
       loop: true,
       volume: 0.4,
+      
     })
     this.player = new Player(this);
     this.score = 0;
