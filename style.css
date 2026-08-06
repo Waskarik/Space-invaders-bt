@@ -38,14 +38,14 @@ body {
     font-size: 1.5rem;
     color:red
 }
-#game-continder {
+#game-containder {
     overflow: hidden;
     border :3px solid black;
     border-radius: 10px;
     background-color: #f0f0f0;
     line-height: 0;
 }
-#game-continder canvas {
+#game-containder canvas {
     display: block;
     width: 100%;
     height: auto;
@@ -59,7 +59,7 @@ body {
 .game-controls strong {
     color: #fff;
 }
-@media (max-width: 850) {
+@media (max-width: 850px) {
     .page-container {
        justify-content: flex-start;
        padding: 12px;

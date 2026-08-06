@@ -34,13 +34,10 @@ class Player {
     
     
  }
-  move() {
-
-  }
  attack() {
-  if (this.projectile)return
-  this.projectile = new Projectile(this.scene,this.sprite.x,this.sprite.y - 25,"projectile", this);
-  this.projectile.sprite.setVelocityY(-350);
+  if (!this.scene.easyMode && this.projectile)return
+  this.projectile = new Projectile(this.scene,this.sprite.x,this.sprite.y - 25, this);
+  this.projectile.sprite.body.setVelocityY(-650);
   this.scene.sound.play("shoot", {
   volume: 0.4,
 });

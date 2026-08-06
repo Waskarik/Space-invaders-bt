@@ -18,6 +18,6 @@ const config = {
 };
 const game = new Phaser.Game(config);
 
-let player;
+/*let player;
 let cursors;
-const PLAYER_SPEED = 250;
+const PLAYER_SPEED = 250;*/
