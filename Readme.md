@@ -1,6 +1,10 @@
 # Random Invaders
 
-A browser Space Invaders clone, built with JavaScript and Phaser 3.
+- A browser Space Invaders clone, built with JavaScript and Phaser 3.
+
+# Link
+
+- https://waskarik.github.io/Space-invaders-bt/
 
 # Controls
 
