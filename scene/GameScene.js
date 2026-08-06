@@ -12,7 +12,7 @@ class GameScene extends Phaser.Scene {
     this.load.audio("relaxa", "random_invaders_assets/relaxa.mp3");
     this.load.audio("EnemyDead","random_invaders_assets/invaderkilled.wav")
     this.load.image("player", "random_invaders_assets/baseshipa.ico");
-    this.load.video("starfield","random_invaders_assets/field.mp4", "loadeddata",false, true);
+   // this.load.video("starfield","random_invaders_assets/field.mp4", "loadeddata",false, true);
   }
   
   create() {
@@ -23,7 +23,7 @@ class GameScene extends Phaser.Scene {
       volume: 0.4,
 
     }) 
-    this.backgroundVideo = this.add.video(
+    /*this.backgroundVideo = this.add.video(
     this.scale.width / 2,
     this.scale.height / 2,
     "starfield"
@@ -36,6 +36,7 @@ class GameScene extends Phaser.Scene {
     this.backgroundVideo.setDepth(-10);
     this.backgroundVideo.setPlaybackRate(0.5);
     this.backgroundVideo.play(true);
+    */
 
     this.player = new Player(this);
     this.score = 0;
