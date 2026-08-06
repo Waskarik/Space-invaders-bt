@@ -1,6 +1,6 @@
 # Random Invaders
 
-A browser game inspired by Space Invaders, built with JavaScript and Phaser 3.
+A browser Space Invaders clone, built with JavaScript and Phaser 3.
 
 # Controls
 
