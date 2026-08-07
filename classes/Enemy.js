@@ -3,7 +3,7 @@ class Enemy {
     this.scene = scene;
     this.speed = speed;
     this.sprite = scene.add.sprite(x, y, "enemy1");
-    this.sprite.setScale(0.9);
+    this.sprite.setScale(0.75);
 
     scene.physics.add.existing(this.sprite);
     this.animationTimer = scene.time.addEvent({
