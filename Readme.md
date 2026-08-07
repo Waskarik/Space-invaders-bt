@@ -11,7 +11,7 @@
 - A / D or arrow keys: move
 - Space: shoot
 - R: restart after game over
-- M: "easy mode".
+- M: "easy mode"
 
 # Features
 
